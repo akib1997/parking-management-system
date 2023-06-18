@@ -1,45 +1,58 @@
 <section class="px-3">
-  <div class="flex justify-between items-center my-4">
-    <p class="text-lg font-medium capitalize">Dashboard</p>
-    <form nz-form [nzLayout]="'vertical'" [formGroup]="form" class="login-form">
-      <div class="w-80">
-        <nz-form-item>
-          <nz-form-label class="capitalize">Date</nz-form-label>
-          <nz-form-control nzErrorTip="Required Field!">
-            <nz-select formControlName="date" class="w-28">
-              <ng-container *ngFor="let vType of eTimeFilterType | enumToArray">
-                <nz-option [nzValue]="vType" [nzLabel]="vType"></nz-option>
-              </ng-container>
-            </nz-select>
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-    </form>
-  </div>
+  <div class="max-w-5xl w-full mx-auto">
+    <div class="flex justify-between items-center my-4">
+      <p class="text-lg font-medium capitalize">Dashboard</p>
+      <form nz-form [nzLayout]="'vertical'" [formGroup]="form" class="login-form">
+        <div class="w-80">
+          <nz-form-item>
+            <nz-form-label class="capitalize">Date</nz-form-label>
+            <nz-form-control nzErrorTip="Required Field!">
+              <nz-select formControlName="date" class="w-28">
+                <ng-container *ngFor="let vType of eTimeFilterType | enumToArray">
+                  <nz-option [nzValue]="vType" [nzLabel]="vType"></nz-option>
+                </ng-container>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </form>
+    </div>
 
-  <div class="grid gap-4 grid-cols-3">
-    <nz-card nzTitle="Total Cars Parked">
-      <div class="flex w-full h-full justify-center items-center">
-        <p class="w-24 h-24 rounded-full flex justify-center items-center text-2xl bg-purple-600 text-white"> {{totalVahicle}} </p>
-      </div>
-    </nz-card>
-    <nz-card nzTitle="Total Empty Slot">
-      <div class="flex w-full h-full justify-center items-center">
-        <p class="w-24 h-24 rounded-full flex justify-center items-center text-2xl bg-purple-600 text-white"> 0 </p>
-      </div>
-    </nz-card>
-    <nz-card nzTitle="Vehicle Type Info">
-      <ul class="grid gap-4 w-full">
-        <li class="flex justify-between items-center w-full">
-          <p class="font-semibold text-lg">Car: <span class="font-normal">{{totalCar}}</span> </p>
-        </li>
-        <li class="flex justify-between items-center w-full">
-          <p class="font-semibold text-lg">Track: <span class="font-normal">{{totalTrack}}</span> </p>
-        </li>
-        <li class="flex justify-between items-center w-full">
-          <p class="font-semibold text-lg">Microbus: <span class="font-normal">{{totalMicrobus}}</span> </p>
-        </li>
-      </ul>
-    </nz-card>
+    <div class="grid gap-4 grid-cols-3">
+      <nz-card nzTitle="Total Cars Parked">
+        <div class="flex w-full h-full justify-center items-center">
+          <p
+            class="w-24 h-24 rounded-full flex justify-center items-center text-2xl bg-purple-600 text-white"
+          >
+            {{ totalVahicle || 0 }}
+          </p>
+        </div>
+      </nz-card>
+      <nz-card nzTitle="Total Empty Slot">
+        <div class="flex w-full h-full justify-center items-center">
+          <p
+            class="w-24 h-24 rounded-full flex justify-center items-center text-2xl bg-purple-600 text-white"
+          >
+            0
+          </p>
+        </div>
+      </nz-card>
+      <nz-card nzTitle="Vehicle Type Info">
+        <ul class="grid gap-4 w-full">
+          <li class="flex justify-between items-center w-full">
+            <p class="font-semibold text-lg">Car:</p>
+            <span class="font-normal">{{ totalCar || 0 }}</span>
+          </li>
+          <li class="flex justify-between items-center w-full">
+            <p class="font-semibold text-lg">Track:</p>
+            <span class="font-normal">{{ totalTrack || 0 }}</span>
+          </li>
+          <li class="flex justify-between items-center w-full">
+            <p class="font-semibold text-lg">Microbus:</p>
+            <span class="font-normal">{{ totalMicrobus || 0 }}</span>
+          </li>
+        </ul>
+      </nz-card>
+    </div>
   </div>
 </section>

@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'vehicle',
     loadChildren: () => import('./vehicale/vehicle.module').then(m => m.VehicleModule)
   },
+  {
+    path: '**',
+    redirectTo: ''
+  },
 ];
 
 @NgModule({

@@ -19,7 +19,7 @@ export class StorageService {
   }
 
   storeVehicle(payload: IVehicle): void {
-    let currentVehicles: IVehicle[] = JSON.parse(localStorage.getItem('vehicles')!);
+    let currentVehicles: IVehicle[] = JSON.parse(localStorage.getItem('vehicles')!) || [];
     currentVehicles.push(payload);
     localStorage.setItem('vehicles', JSON.stringify(currentVehicles));
   }

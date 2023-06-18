@@ -30,14 +30,14 @@ export class DashboardComponent implements OnInit {
 
   getvehicles(): void {
     const totalVahicles = this.vehicle.getVehicles();
-    this.totalVahicle = totalVahicles.length;
+    this.totalVahicle = totalVahicles?.length;
     this.totalCar = this.filterByVehicleType(totalVahicles, this.vehicleTypes['Car'])
     this.totalTrack = this.filterByVehicleType(totalVahicles, this.vehicleTypes['Truck'])
     this.totalMicrobus = this.filterByVehicleType(totalVahicles, this.vehicleTypes['Microbus'])
   }
 
   filterByVehicleType(totalVehicle: IVehicle[], vehicleType: string): number {
-    return totalVehicle.filter(item => item.vehicleType === vehicleType).length;
+    return totalVehicle?.filter(item => item.vehicleType === vehicleType).length;
   }
 
 
