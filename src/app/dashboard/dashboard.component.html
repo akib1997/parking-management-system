@@ -1,6 +1,6 @@
 <section class="px-3">
   <div class="flex justify-between items-center my-4">
-    <p class="text-lg font-medium">dashboard</p>
+    <p class="text-lg font-medium capitalize">Dashboard</p>
     <form nz-form [nzLayout]="'vertical'" [formGroup]="form" class="login-form">
       <div class="w-80">
         <nz-form-item>
@@ -29,9 +29,17 @@
       </div>
     </nz-card>
     <nz-card nzTitle="Vehicle Type Info">
-      <p> Car: {{totalCar}} </p>
-      <p> Track: {{totalTrack}} </p>
-      <p> Microbus: {{totalMicrobus}} </p>
+      <ul class="grid gap-4 w-full">
+        <li class="flex justify-between items-center w-full">
+          <p class="font-semibold text-lg">Car: <span class="font-normal">{{totalCar}}</span> </p>
+        </li>
+        <li class="flex justify-between items-center w-full">
+          <p class="font-semibold text-lg">Track: <span class="font-normal">{{totalTrack}}</span> </p>
+        </li>
+        <li class="flex justify-between items-center w-full">
+          <p class="font-semibold text-lg">Microbus: <span class="font-normal">{{totalMicrobus}}</span> </p>
+        </li>
+      </ul>
     </nz-card>
   </div>
 </section>
