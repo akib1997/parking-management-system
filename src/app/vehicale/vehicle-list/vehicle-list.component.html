@@ -1,0 +1,40 @@
+
+
+<div class="shadow p-3 m-3">
+  <div class="flex items-center justify-between py-3">
+    <h6 class="font-medium">Vehicle List</h6>
+    <button (click)="navigateToVehicleForm()" class="bg-blue-600 text-white outline-none shadow px-4 py-1">Add Vehicle</button>
+  </div>
+  <nz-table #basicTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th>Owner Name</th>
+        <th>Owner Address</th>
+        <th>Owner Phone</th>
+        <th>Vehicle Type</th>
+        <th>License No</th>
+        <th>Entry Time</th>
+        <th>Exit Time</th>
+        <th>Parking Charge</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.vehicleOwnerName }}</td>
+        <td>{{ data.vehicleOwnerAddress }}</td>
+        <td>{{ data.vehicleOwnerPhone }}</td>
+        <td>{{ data.vehicleType }}</td>
+        <td>{{ data.vehicleLicenseNumber }}</td>
+        <td>{{ data.carEntryDate | date }}</td>
+        <td>{{ data.carExitDate | date }}</td>
+        <td>{{ data.parkingCharge }}</td>
+        <td>{{ data.vehicleStatus }}</td>
+        <td>
+          <a (click)="navigateForEdit(data.id!)">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

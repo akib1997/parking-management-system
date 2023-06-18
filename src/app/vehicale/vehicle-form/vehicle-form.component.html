@@ -1,0 +1,112 @@
+<div class="max-w-3xl w-full mx-auto my-8 shadow-lg p-4">
+  <h6 class="mb-4 text-xl font-medium">Add Vehicle Information</h6>
+  <form
+    nz-form
+    [nzLayout]="'vertical'"
+    [formGroup]="vehicleForm"
+    class="login-form"
+  >
+    <div class="form-grid grid grid-cols-2 gap-x-4">
+      <nz-form-item>
+        <nz-form-label class="capitalize">Owner Name</nz-form-label>
+        <nz-form-control nzErrorTip="Required Field!">
+          <input type="text" nz-input formControlName="vehicleOwnerName" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label class="capitalize">Owner Address</nz-form-label>
+        <nz-form-control nzErrorTip="Required Field!">
+          <input type="text" nz-input formControlName="vehicleOwnerAddress" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label class="capitalize">Owner Phone</nz-form-label>
+        <nz-form-control nzErrorTip="Required Field!">
+          <input type="text" nz-input formControlName="vehicleOwnerPhone" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label class="capitalize">Type</nz-form-label>
+        <nz-form-control nzErrorTip="Required Field!">
+          <nz-select formControlName="vehicleType">
+            <ng-container *ngFor="let vType of vehicleTypes | enumToArray">
+              <nz-option [nzValue]="vType" [nzLabel]="vType"></nz-option>
+            </ng-container>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label class="capitalize">car Entry Date</nz-form-label>
+        <nz-form-control nzErrorTip="Required Field!">
+          <nz-date-picker
+            class="w-full"
+            nz-input
+            formControlName="carEntryDate"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label class="capitalize">car Exit Date</nz-form-label>
+        <nz-form-control nzErrorTip="Required Field!">
+          <nz-date-picker
+            class="w-full"
+            nz-input
+            formControlName="carExitDate"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label class="capitalize">parking Charge</nz-form-label>
+        <nz-form-control nzErrorTip="Required Field!">
+          <input type="number" nz-input formControlName="parkingCharge" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label class="capitalize">License Number</nz-form-label>
+        <nz-form-control nzErrorTip="Required Field!">
+          <input
+            type="number"
+            nz-input
+            formControlName="vehicleLicenseNumber"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label class="capitalize">Status</nz-form-label>
+        <nz-form-control nzErrorTip="Required Field!">
+          <nz-radio-group formControlName="vehicleStatus">
+            <label nz-radio nzValue="in">In</label>
+            <label nz-radio nzValue="out">Out</label>
+          </nz-radio-group>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <button
+        nz-button
+        class="login-form-button login-form-margin"
+        [nzType]="'default'"
+        (click)="back()"
+      >
+        Back
+      </button>
+      <button
+        nz-button
+        class="login-form-button login-form-margin"
+        [nzType]="'primary'"
+        (click)="submitForm()"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
